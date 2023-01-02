@@ -6,6 +6,11 @@ const getTimeSpanString = (startString, endString, replaceNullEndWithCurrent = f
     const end = new Date(endString);
     return `${start.getFullYear()} - ${end.getFullYear()}`;
   };
+
+const getYearString = (dateTimeString) => {
+  const dateTime = new Date(dateTimeString);
+  return dateTime.getFullYear();
+};
   
-  export { getTimeSpanString };
+export { getTimeSpanString, getYearString };
   

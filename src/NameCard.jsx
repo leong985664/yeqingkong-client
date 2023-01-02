@@ -18,8 +18,8 @@ const NameCard = () => {
           sx={{ width: 200, height: 200, margin: "auto" }}
         />
       </div>
-      <Typography variant="h5" align="center" sx={{ pt: 3 }}>{name}</Typography>
-      <Typography variant="subtitle1" align="center" sx={{ pt: 3 }}>{jobTitle}</Typography>
+      <Typography variant="h5" align="center" sx={{ mt: 3 }}>{name}</Typography>
+      <Typography variant="subtitle1" align="center" sx={{ mt: 3 }}>{jobTitle}</Typography>
     </Container>
   )
 }

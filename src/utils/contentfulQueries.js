@@ -67,12 +67,41 @@ const contentfulEducationQuery = gql`{
     }
 }`;
 
+const contentfulPublicationsQuery = gql`{
+    publicationsCollection{
+        items {
+            title
+            status
+            time
+            authorsCollection {
+                items {
+                    firstName
+                    lastName
+                }
+            }
+            journal
+            slides {
+                url
+            }
+            videoUrl
+        }
+    }
+}`;
+
 const contentfulSpecialtiesQuery = gql`{
     specialtiesCollection(limit: 1) {
         items {
             specialties
         }
-      }
+    }
+}`;
+
+const contentfulTeachingInterestsQuery = gql`{
+    teachingInterestsCollection(limit: 1) {
+        items {
+            interests
+        }
+    }
 }`;
 
 export {
@@ -81,5 +110,7 @@ export {
     contentfulBiographyQuery,
     contentfulContactsQuery,
     contentfulEducationQuery,
-    contentfulSpecialtiesQuery
+    contentfulPublicationsQuery,
+    contentfulSpecialtiesQuery,
+    contentfulTeachingInterestsQuery,
 };

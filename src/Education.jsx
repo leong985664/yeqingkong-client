@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client';
 import * as React from "react"
 import { Avatar, Container, Divider, Typography } from "@mui/material";
-import { getTimeSpanString } from "./utils/helpers";
 import { contentfulEducationQuery } from './utils/contentfulQueries';
+import { getTimeSpanString } from "./utils/helpers";
 
 const Education = () => {
   const { loading, error, data } = useQuery(contentfulEducationQuery);
@@ -22,11 +22,11 @@ const Education = () => {
         </div>
         <div style={{ padding: 5, margin: "auto 0" }}>
           <Typography variant="subtitle1">{item.degree}</Typography>
-          <Typography variant="subtitle1">{item.organization}</Typography>
+          <Typography variant="subtitle2" color="text.secondary">{item.organization}</Typography>
         </div>
         <div style={{ padding: 5, margin: "auto 0 auto auto", display: "grid" }}>
           <Typography variant="subtitle1" sx={{ ml: "auto" }}>{item.locationString}</Typography>
-          <Typography variant="subtitle1" sx={{ ml: "auto" }}>{getTimeSpanString(item.startTime, item.endTime, true)}</Typography>
+          <Typography variant="subtitle2" color="text.secondary" sx={{ ml: "auto" }}>{getTimeSpanString(item.startTime, item.endTime, true)}</Typography>
         </div>
       </div>
     )
@@ -34,7 +34,7 @@ const Education = () => {
 
   return (
     <Container sx={{ pt: 5, px: 5 }}>
-      <Typography variant="h6" sx={{ mb: 3 }}>Education</Typography>
+      <Typography gutterBottom variant="h5">Education</Typography>
       {education.map((item, index) => {
         return (
           <>

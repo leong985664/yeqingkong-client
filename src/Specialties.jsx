@@ -11,7 +11,7 @@ const Specialties = () => {
 
   return (
     <Container sx={{ pt: 5, px: 5 }}>
-      <Typography variant="h6" sx={{ mb: 3 }}>Specialties</Typography>
+      <Typography gutterBottom variant="h5">Specialties</Typography>
       {specialties.map((specialty, index) => {
         return <Chip key={index} color="primary" variant="outlined" size="large" label={specialty} sx={{ margin: 0.5 }}/>
       })}

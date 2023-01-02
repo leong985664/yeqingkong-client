@@ -18,6 +18,7 @@ const Awards = () => {
           sx={{ m: 'auto 0' }}
           align="right"
           variant="body2"
+          fontWeight="bold"
           color="text.secondary"
         >
         {getTimeSpanString(award.startTime, award.endTime)}
@@ -35,7 +36,7 @@ const Awards = () => {
         <Card elevation={5}>
           <CardContent>
             <Typography variant="subtitle1">{award.name}</Typography>
-            <Typography variant="subtitle2">{`$${award.amount}`}</Typography>
+            <Typography variant="subtitle2" color="text.secondary">{`$${award.amount}`}</Typography>
           </CardContent>
         </Card>
         </TimelineContent>
@@ -45,7 +46,7 @@ const Awards = () => {
 
   return (
     <Container sx={{ pt: 5, px: 5 }}>
-      <Typography variant="h6" sx={{ mb: 3 }}>Honors & Awards</Typography>
+      <Typography gutterBottom variant="h5">Honors & Awards</Typography>
       <Timeline position="alternate">
         {awards.map((award, index) => {
           return renderAwardItem(award, index);

@@ -12,12 +12,10 @@ const Biography = () => {
 
   return (
     <Container sx={{ pt: 5, px: 5 }}>
-      <Typography variant="h6" sx={{ mb: 3 }}>Biography</Typography>
-      <div>
-        <Typography variant="body">
-          {contentRaw}
-        </Typography>
-      </div>
+      <Typography gutterBottom variant="h5">Biography</Typography>
+      <Typography gutterBottom variant="body" component="div">
+        {contentRaw}
+      </Typography>
       <Button target="_blank" href={cv.url} color="secondary" variant="outlined" startIcon={<ArticleIcon />} sx={{ mt: 1 }}>
         View CV
       </Button>

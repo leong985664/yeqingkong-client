@@ -1,4 +1,5 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { createTheme, ThemeProvider } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -13,12 +14,59 @@ const client = new ApolloClient({
   }
 })
 
+const theme = createTheme({
+  palette: {
+    neutral: {
+      main: '#64748B',
+      contrastText: '#ffffff',
+    },
+    published: {
+      main: 'rgb(205, 243, 198)',
+      contrastText: 'rgb(0, 109, 35)',
+    },
+    forthcoming: {
+      main: 'rgb(255, 224, 224)',
+      contrastText: 'rgb(189, 0, 42)',
+    },
+    "under revision": {
+      main: 'rgb(253, 229, 192)',
+      contrastText: 'rgb(177, 45, 0)',
+    },
+    "under development": {
+      main: 'rgb(231, 235, 238)',
+      contrastText: 'rgb(65, 77, 99)',
+    }
+  },
+  typography: {
+    h5: {
+      fontSize: 22,
+    },
+    h6: {
+      fontSize: 20,
+    },
+    subtitle1: {
+      fontSize: 18,
+    },
+    subtitle2: {
+      fontSize: 16,
+    },
+    body: {
+      fontSize: 18,
+    },
+    body2: {
+      fontSize: 16,
+    }
+  }
+});
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
     </ApolloProvider>
   </React.StrictMode>
 );
