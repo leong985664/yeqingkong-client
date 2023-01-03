@@ -18,7 +18,6 @@ const Awards = () => {
           sx={{ m: 'auto 0' }}
           align="right"
           variant="body2"
-          fontWeight="bold"
           color="text.secondary"
         >
         {getTimeSpanString(award.startTime, award.endTime)}
@@ -36,7 +35,7 @@ const Awards = () => {
         <Card elevation={5}>
           <CardContent>
             <Typography variant="subtitle1">{award.name}</Typography>
-            <Typography variant="subtitle2" color="text.secondary">{`$${award.amount}`}</Typography>
+            <Typography variant="h6" sx={{ fontWeight: 700 }}>{`$${award.amount}`}</Typography>
           </CardContent>
         </Card>
         </TimelineContent>
