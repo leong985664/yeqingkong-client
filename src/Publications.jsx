@@ -3,7 +3,6 @@ import PersonIcon from '@mui/icons-material/Person';
 import { Avatar, Button, Card, CardActions, CardContent, Chip, Container, Typography } from "@mui/material";
 import * as React from "react"
 import { contentfulPublicationsQuery } from './utils/contentfulQueries';
-import { getYearString } from './utils/helpers';
 
 const Publications = () => {
   const { loading, error, data } = useQuery(contentfulPublicationsQuery);
@@ -14,7 +13,7 @@ const Publications = () => {
   const renderAuthors = (authors) => {
     return (
       <div style={{ display: "flex", verticalAlign: "center" }}>
-        <Avatar sx={{ width: "1.2em", height: "1.2em", mr: 1, backgroundColor: "inherit", border: "solid 0.1px lightgrey" }}>
+        <Avatar sx={{ width: "1.3em", height: "1.3em", mr: 1, backgroundColor: "inherit", border: "solid 0.1px lightgrey" }}>
           <PersonIcon fontSize="small" color="disabled" />
         </Avatar>
         {authors.map((author, index) => {
@@ -33,18 +32,18 @@ const Publications = () => {
       <Card variant="outlined" sx={{ my: 2 }}>
         <CardContent>
           <div style={{ display: "flex" }}>
-            <Typography variant="h6" component="div">
+            <Typography variant="h6" component="div" sx={{ pr: 5, fontWeight: "600" }}>
               {publication.title}
             </Typography>
             <Chip
               label={publication.status}
               color={publication.status.toLowerCase()}
               size="small"
-              sx={{ margin: "auto 0 auto auto", borderRadius: "5px", fontWeight: "600px", textTransform: "uppercase" }}
+              sx={{ m: "auto 0 auto auto", borderRadius: "5px", textTransform: "uppercase" }}
               />
           </div>
           {renderAuthors(publication.authorsCollection.items)}
-          <Typography variant="subtitle2">
+          <Typography variant="subtitle1">
             {publication.journal}
           </Typography>
         </CardContent>

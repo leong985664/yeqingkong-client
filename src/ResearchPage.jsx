@@ -2,12 +2,12 @@ import { Container } from "@mui/material";
 import * as React from "react"
 import Publications from "./Publications";
 
-const Research = () => {
+const ResearchPage = () => {
   return (
-    <Container disableGutters maxWidth="lg" sx={{ mt: 10 }}>
+    <Container disableGutters maxWidth="lg">
       <Publications />
     </Container>
   )
 }
 
-export default Research;
+export default ResearchPage;

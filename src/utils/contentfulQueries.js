@@ -52,6 +52,44 @@ const contentfulContactsQuery = gql`{
     }
 }`;
 
+const contentfulCoursesQuery = gql`{
+    coursesCollection(order: sys_firstPublishedAt_ASC) {
+        items {
+            name
+            number
+            type
+            time
+            description
+            logo {
+                fileName
+                url
+            }
+            picture {
+                fileName
+                url
+            }
+            syllabus {
+                url
+            }
+            assignment {
+                url
+            }
+            syllabusUrl
+            assignmentUrl
+        }
+    }
+}`;
+
+const contentfulCVQuery = gql`{
+    biographyCollection(limit: 1) {
+        items {
+            cv {
+                url
+            }
+        }
+    }
+}`;
+
 const contentfulEducationQuery = gql`{
     educationCollection(order: startTime_DESC) {
         items {
@@ -109,6 +147,8 @@ export {
     contentfulBasicInfoQuery,
     contentfulBiographyQuery,
     contentfulContactsQuery,
+    contentfulCoursesQuery,
+    contentfulCVQuery,
     contentfulEducationQuery,
     contentfulPublicationsQuery,
     contentfulSpecialtiesQuery,

@@ -9,7 +9,7 @@ import Specialties from "./Specialties";
 
 const HomePage = () => {
   return (
-    <Container disableGutters maxWidth="lg" sx={{ mt: 10 }}>
+    <Container disableGutters maxWidth="lg">
       <Grid container spacing={2}>
         <Grid item xs={12} md={4}>
           <NameCard />

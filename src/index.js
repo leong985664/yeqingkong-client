@@ -35,6 +35,14 @@ const theme = createTheme({
     "under development": {
       main: 'rgb(231, 235, 238)',
       contrastText: 'rgb(65, 77, 99)',
+    },
+    undergraduate: {
+      main: '#bbdefb',
+      contrastText: '#1976d2',
+    },
+    graduate: {
+      main: '#d1c4e9',
+      contrastText: '#512da8'
     }
   },
   typography: {
