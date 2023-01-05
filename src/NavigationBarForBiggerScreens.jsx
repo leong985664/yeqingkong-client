@@ -25,7 +25,7 @@ const StyledTabs = styled((props) => (
   },
 });
 
-const StyledTab = styled((props) => <Tab disableRipple component={Link} {...props} />
+const StyledTab = styled((props) => <Tab disableRipple {...props} />
 )(
   ({ theme }) => ({
     textTransform: "Uppercase",
@@ -42,10 +42,13 @@ const StyledTab = styled((props) => <Tab disableRipple component={Link} {...prop
 );
 
 const NavigationBarForBiggerScreens = (props) => {
-  const { pages, value, setValue } = props;
+  const { pages, cvQuery, value, setValue } = props;
+  const { loading, error, data } = cvQuery;
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    if (newValue < pages.length) {
+      setValue(newValue);
+    }
   };
 
   return (
@@ -73,8 +76,9 @@ const NavigationBarForBiggerScreens = (props) => {
           aria-label="styled tabs example"
         >
           {pages.map((page) => (
-            <StyledTab key={page} to={`/${(page === "home") ? "" : page}`} label={page} />
+            <StyledTab key={page} component={Link} to={`/${(page === "home") ? "" : page}`} label={page} />
           ))}
+          {!(loading || error) && <StyledTab href={data.biographyCollection.items[0].cv.url} target="_blank" label="CV" />}
         </StyledTabs>
         <Box sx={{ p: 1 }} />
       </div>

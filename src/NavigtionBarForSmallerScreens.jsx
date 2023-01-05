@@ -8,8 +8,9 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavigationBarForSmallerScreens = (props) => {
-    const { pages, setValue } = props;
-
+    const { pages, cvQuery, setValue } = props;
+    const { loading, error, data } = cvQuery;
+    
     const [anchorElNav, setAnchorElNav] = React.useState(null);
   
     const handleOpenNavMenu = (event) => {
@@ -74,10 +75,18 @@ const NavigationBarForSmallerScreens = (props) => {
               component={Link}
               to={page === "home" ? "" : `/${page}`}
               onClick={handleCloseNavMenu}
-              sx={{ textTransform: page === "cv" ? "uppercase" : "capitalize" }}>
+              sx={{ textTransform: "capitalize" }}>
                 {page}
             </MenuItem>
           ))}
+          {!(loading || error) && <MenuItem
+            component="a"
+            href={data.biographyCollection.items[0].cv.url}
+            target="_blank"
+            onClick={handleCloseNavMenu}
+            sx={{ textTransform: "uppercase" }}>
+              CV
+            </MenuItem>}
         </Menu>
       </Box>
     </>
