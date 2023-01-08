@@ -1,5 +1,5 @@
 import PersonIcon from '@mui/icons-material/Person';
-import { Avatar, Button, Card, CardActions, CardContent, Chip, Typography } from "@mui/material";
+import { Avatar, Card, CardActions, CardContent, Chip, Link, Typography } from "@mui/material";
 import * as React from "react"
 import { getMonthYear } from './utils/helpers';
 
@@ -8,7 +8,7 @@ const PublicationCard = (props) => {
 
   return (
     <Card variant="outlined" sx={{ my: 2 }}>
-      <CardContent>
+      <CardContent sx={{ pb: 0 }}>
         <Chip
           label={publication.type}
           variant="outlined"
@@ -39,17 +39,17 @@ const PublicationCard = (props) => {
             )
           })}
         </div>
-        <Typography variant="subtitle1">
+        <Typography variant="caption" component="div">
           {publication.journal}
         </Typography>
-        <Typography variant="caption">
+        <Typography variant="overline">
           {getMonthYear(publication.time)}
         </Typography>
       </CardContent>
-      <CardActions>
-        {publication.url && <Button target="_blank" href={publication.url} color="secondary" size="small">DOI</Button>}
-        {publication.slides && <Button target="_blank" href={publication.slides.url} color="secondary" size="small">Slides</Button>}
-        {publication.videoUrl && <Button target="_blank" href={publication.videoUrl} color="secondary" size="small">Presentation</Button>}
+      <CardActions sx={{ px: "16px", pb: "16px" }}>
+        {publication.url && <Typography component={Link} variant="button" color="secondary" target="_blank" href={publication.url} sx={{ textDecoration: "none", pr: 3 }}>DOI</Typography>}
+        {publication.slides && <Typography component={Link} variant="button" color="secondary" target="_blank" href={publication.slides.url} sx={{ textDecoration: "none", pr: 3 }}>Slides</Typography>}
+        {publication.videoUrl && <Typography component={Link} variant="button" color="secondary" target="_blank" href={publication.videoUrl} sx={{ textDecoration: "none", pr: 3 }}>Presentation</Typography>}
       </CardActions>
     </Card>
   )

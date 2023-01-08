@@ -50,7 +50,7 @@ const theme = createTheme({
       fontSize: 22,
     },
     h6: {
-      fontSize: 20,
+      fontSize: 19,
     },
     subtitle1: {
       fontSize: 18,
@@ -66,6 +66,9 @@ const theme = createTheme({
     },
     caption: {
       fontSize: 14,
+    },
+    button: {
+      fontSize: 16,
     }
   }
 });
