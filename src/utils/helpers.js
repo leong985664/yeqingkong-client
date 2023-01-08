@@ -1,4 +1,4 @@
-const getTimeSpanString = (startString, endString, replaceNullEndWithCurrent = false) => {
+const getYearSpanString = (startString, endString, replaceNullEndWithCurrent = false) => {
     const start = new Date(startString);
     if (!endString) {
       return replaceNullEndWithCurrent ? `${start.getFullYear()} - current` : start.getFullYear();
@@ -7,10 +7,21 @@ const getTimeSpanString = (startString, endString, replaceNullEndWithCurrent = f
     return `${start.getFullYear()} - ${end.getFullYear()}`;
   };
 
-const getYearString = (dateTimeString) => {
+const getYear = (dateTimeString) => {
+  if (!dateTimeString) {
+    return null;
+  }
   const dateTime = new Date(dateTimeString);
   return dateTime.getFullYear();
 };
-  
-export { getTimeSpanString, getYearString };
+
+const getMonthYear = (dateTimeString) => {
+  if (!dateTimeString) {
+    return null;
+  }
+  const dateTime = new Date(dateTimeString);
+  return dateTime.toLocaleString('default', {month:'short', year:'numeric'})
+}
+
+export { getYearSpanString, getYear, getMonthYear };
   

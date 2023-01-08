@@ -63,6 +63,9 @@ const theme = createTheme({
     },
     body2: {
       fontSize: 16,
+    },
+    caption: {
+      fontSize: 14,
     }
   }
 });

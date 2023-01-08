@@ -15,7 +15,7 @@ const Courses = () => {
 
     return (
       <Grid item key={index} xs={12} sm={6} md={4}>
-        <Card sx={{ height: 500 }}>
+        <Card sx={{ p: 1 }}>
           <CardMedia
             component="img"
             height="150"
@@ -25,10 +25,9 @@ const Courses = () => {
           <CardHeader
             avatar={
               <Avatar
-                alt={course.logo.fileName}
-                src={course.logo.url}
-                sx={{ width: 40, height: 40 }}
-              />
+                sx={{ width: 40, height: 40, backgroundColor: "transparent" }}>
+                <img alt={course.institution.name} src={course.institution.logo.url} style={{ width: "100%", heigth: "auto" }} />
+              </Avatar>
             }
             title={
               <div style={{ display: "flex" }}>
@@ -36,19 +35,19 @@ const Courses = () => {
                   {course.number}
                 </Typography>
                 <Chip
-                  label={course.type}
-                  color={course.type.toLowerCase()}
+                  label={course.level}
+                  color={course.level.toLowerCase()}
                   size="small"
-                  sx={{ m: "auto 0 auto auto", borderRadius: "5px", fontWeight: "600px", textTransform: "capitalize" }}
+                  sx={{ m: "auto 0 auto auto", borderRadius: "5px", textTransform: "capitalize" }}
                   />
               </div>
             }
             subheader={course.name}
-            subheaderTypographyProps={{ variant: "h6", color: "text.primary" , sx: { fontWeight: "600" } }}
+            subheaderTypographyProps={{ variant: "h6", color: "text.primary" }}
           />
           <CardContent sx={{ pt: 0 }}>
             <Stack direction="row" spacing={0.5} sx={{ mb: 2 }}>
-              {course.time.split(" & ").map((time, index) => {
+              {course.times.map((time, index) => {
                 return (
                   <Chip label={time} key={time} variant="outlined" size="small" />
                 )

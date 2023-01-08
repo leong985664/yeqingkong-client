@@ -3,7 +3,7 @@ import * as React from "react"
 import { Avatar, Card, CardContent, Container, Typography } from "@mui/material";
 import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineOppositeContent, TimelineSeparator  } from '@mui/lab';
 import { contentfulAwardsQuery } from "./utils/contentfulQueries";
-import { getTimeSpanString } from "./utils/helpers";
+import { getYearSpanString } from "./utils/helpers";
 
 const Awards = () => {
   const { loading, error, data } = useQuery(contentfulAwardsQuery);
@@ -20,7 +20,7 @@ const Awards = () => {
           variant="body2"
           color="text.secondary"
         >
-        {getTimeSpanString(award.startTime, award.endTime)}
+        {getYearSpanString(award.startTime, award.endTime)}
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineConnector />

@@ -29,7 +29,6 @@ const contentfulBasicInfoQuery = gql`{
 const contentfulBiographyQuery = gql`{
     biographyCollection(limit: 1) {
         items {
-            contentRaw
             content {
                 json
             }
@@ -57,13 +56,17 @@ const contentfulCoursesQuery = gql`{
         items {
             name
             number
+            level
             type
-            time
-            description
-            logo {
-                fileName
-                url
+            institution {
+                 name
+                logo {
+                    fileName
+                    url
+                }
             }
+            times
+            description
             picture {
                 fileName
                 url
@@ -94,22 +97,25 @@ const contentfulEducationQuery = gql`{
     educationCollection(order: startTime_DESC) {
         items {
             degree
-            organization
-            locationString
+            institution {
+                name
+                locationString
+                logo {
+                    url
+                }
+            }
             startTime
             endTime
-            logo {
-                url
-            }
         }
     }
 }`;
 
 const contentfulPublicationsQuery = gql`{
-    publicationsCollection{
+    publicationsCollection(order: time_DESC) {
         items {
             title
             status
+            type
             time
             authorsCollection {
                 items {
@@ -118,6 +124,7 @@ const contentfulPublicationsQuery = gql`{
                 }
             }
             journal
+            url
             slides {
                 url
             }
