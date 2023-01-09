@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/yeqingkong-client/static/css/main.e6c13ad2.css",
+    "main.js": "/yeqingkong-client/static/js/main.773f3981.js",
+    "static/js/787.662fd93b.chunk.js": "/yeqingkong-client/static/js/787.662fd93b.chunk.js",
+    "index.html": "/yeqingkong-client/index.html",
+    "main.e6c13ad2.css.map": "/yeqingkong-client/static/css/main.e6c13ad2.css.map",
+    "main.773f3981.js.map": "/yeqingkong-client/static/js/main.773f3981.js.map",
+    "787.662fd93b.chunk.js.map": "/yeqingkong-client/static/js/787.662fd93b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.773f3981.js"
+  ]
+}
