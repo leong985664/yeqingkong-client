@@ -54,7 +54,7 @@ const NavigationBarForBiggerScreens = (props) => {
   return (
     <Container maxWidth="lg" sx={{ display: { xs: 'none', md: 'flex' } }}>
       <Typography
-        variant="h6"
+        variant="h5"
         noWrap
         component={Link}
         to="/"

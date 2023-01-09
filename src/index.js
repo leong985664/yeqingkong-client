@@ -46,17 +46,24 @@ const theme = createTheme({
     }
   },
   typography: {
-    h5: {
+    h4: {
       fontSize: 22,
+      fontWeight: 500,
+    },
+    h5: {
+      fontSize: 20,
+      fontWeight: 500,
     },
     h6: {
-      fontSize: 19,
+      fontSize: 18,
+      fontWeight: 500,
     },
     subtitle1: {
       fontSize: 18,
     },
     subtitle2: {
       fontSize: 16,
+      fontWeight: 500,
     },
     body: {
       fontSize: 18,
@@ -66,6 +73,7 @@ const theme = createTheme({
     },
     caption: {
       fontSize: 14,
+      fontStyle: "italic",
     },
     button: {
       fontSize: 16,

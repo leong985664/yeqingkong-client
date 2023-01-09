@@ -38,6 +38,7 @@ const CourseCard = (props) => {
           }
           subheader={course.name}
           subheaderTypographyProps={{ variant: "h6", color: "text.primary" }}
+          sx={{ pb: 1 }}
         />
         <CardContent sx={{ pt: 0 }}>
           <Stack direction="row" spacing={0.5} sx={{ mb: 2 }}>

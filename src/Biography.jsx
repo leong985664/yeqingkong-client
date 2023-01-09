@@ -10,7 +10,7 @@ const Biography = () => {
   const { loading, error, data } = useQuery(contentfulBiographyQuery);
   if (loading) return <></>;
   if (error) return <></>;
-  const { contentRaw, content, cv } = data.biographyCollection.items[0];
+  const { content, cv } = data.biographyCollection.items[0];
 
   const options = {
     renderNode: {
