@@ -14,7 +14,7 @@ const CustomizedSelect = (props) => {
         value={value}
         onChange={onChange}
         input={<OutlinedInput label={label} />}>
-        {allValues.map((value) => (
+        {allValues.map(value => (
           <MenuItem key={value} value={value}>
             {value}
           </MenuItem>
