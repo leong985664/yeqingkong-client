@@ -1,11 +1,16 @@
-import { Container, Grid } from "@mui/material";
-import * as React from "react"
-import Awards from "./Awards";
-import Contacts from "./Contacts";
-import Biography from "./Biography";
-import Education from "./Education";
-import NameCard from "./NameCard";
-import Specialties from "./Specialties";
+import * as React from 'react';
+
+import {
+  Container,
+  Grid,
+} from '@mui/material';
+
+import Awards from './Awards';
+import Biography from './Biography';
+import Contacts from './Contacts';
+import Education from './Education';
+import NameCard from './NameCard';
+import Specialties from './Specialties';
 
 const HomePage = () => {
   return (

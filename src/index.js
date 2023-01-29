@@ -76,6 +76,10 @@ const theme = createTheme({
       fontSize: 16,
       fontWeight: 500,
     },
+    subtitle3: {
+      fontSize: 14,
+      fontWeight: 500,
+    },
     body: {
       fontSize: 18,
     },

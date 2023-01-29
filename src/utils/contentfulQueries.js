@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client"
+import { gql } from '@apollo/client';
 
 const contentfulAwardsQuery = gql`{
     honorsAwardsCollection(order: startTime_DESC) {
@@ -134,7 +134,7 @@ const contentfulPublicationsQuery = gql`{
 }`;
 
 const contentfulResearchInterestsQuery = gql`{
-    researchInterestCollection {
+    researchInterestCollection(order: sys_publishedVersion_ASC) {
         items {
             name
             description
@@ -161,16 +161,30 @@ const contentfulTeachingInterestsQuery = gql`{
     }
 }`;
 
+const contentfulTestimonialQuery = gql`{
+    testimonialCollection {
+        items {
+            comment
+            course {
+                name
+                number
+            }
+            semester
+        }
+    }
+}`;
+
 export {
-    contentfulAwardsQuery,
-    contentfulBasicInfoQuery,
-    contentfulBiographyQuery,
-    contentfulContactsQuery,
-    contentfulCoursesQuery,
-    contentfulCVQuery,
-    contentfulEducationQuery,
-    contentfulPublicationsQuery,
-    contentfulResearchInterestsQuery,
-    contentfulSpecialtiesQuery,
-    contentfulTeachingInterestsQuery,
+  contentfulAwardsQuery,
+  contentfulBasicInfoQuery,
+  contentfulBiographyQuery,
+  contentfulContactsQuery,
+  contentfulCoursesQuery,
+  contentfulCVQuery,
+  contentfulEducationQuery,
+  contentfulPublicationsQuery,
+  contentfulResearchInterestsQuery,
+  contentfulSpecialtiesQuery,
+  contentfulTeachingInterestsQuery,
+  contentfulTestimonialQuery,
 };

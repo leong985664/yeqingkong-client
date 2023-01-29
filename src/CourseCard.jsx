@@ -1,5 +1,18 @@
-import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Chip, Grid, Stack, Typography } from "@mui/material";
-import * as React from "react"
+import * as React from 'react';
+
+import {
+  Avatar,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  CardMedia,
+  Chip,
+  Grid,
+  Stack,
+  Typography,
+} from '@mui/material';
 
 const CourseCard = (props) => {
   const { course } = props;
@@ -9,7 +22,7 @@ const CourseCard = (props) => {
 
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <Card sx={{ p: 1, mb: 1, height: "95%" }}>
+      <Card sx={{ p: 1, pb: 5, height: "90%", position: "relative" }}>
         <CardMedia
           component="img"
           height="150"
@@ -52,7 +65,7 @@ const CourseCard = (props) => {
             {course.description}
           </Typography>
         </CardContent>
-        <CardActions>
+        <CardActions sx={{ position: "absolute", bottom: 0, left: 0, px: "19px" }}>
           {syllabusUrl && <Button target="_blank" href={syllabusUrl} color="secondary" size="small">Syllabus</Button>}
           {assignmentUrl && <Button target="_blank" href={assignmentUrl} color="secondary" size="small">Assignment</Button>}
         </CardActions>
