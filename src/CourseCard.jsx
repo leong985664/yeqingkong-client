@@ -9,7 +9,7 @@ const CourseCard = (props) => {
 
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <Card sx={{ p: 1 }}>
+      <Card sx={{ p: 1, mb: 1, height: "95%" }}>
         <CardMedia
           component="img"
           height="150"

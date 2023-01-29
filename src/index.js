@@ -1,8 +1,19 @@
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import { createTheme, ThemeProvider } from '@mui/material';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
+
+import React from 'react';
+
+import ReactDOM from 'react-dom/client';
+
+import {
+  ApolloClient,
+  ApolloProvider,
+  InMemoryCache,
+} from '@apollo/client';
+import {
+  createTheme,
+  ThemeProvider,
+} from '@mui/material';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -70,6 +81,9 @@ const theme = createTheme({
     },
     body2: {
       fontSize: 16,
+    },
+    body3: {
+      fontSize: 14,
     },
     caption: {
       fontSize: 14,

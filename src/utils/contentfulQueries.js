@@ -133,6 +133,18 @@ const contentfulPublicationsQuery = gql`{
     }
 }`;
 
+const contentfulResearchInterestsQuery = gql`{
+    researchInterestCollection {
+        items {
+            name
+            description
+            picture {
+                url
+            }
+        }
+    }
+}`;
+
 const contentfulSpecialtiesQuery = gql`{
     specialtiesCollection(limit: 1) {
         items {
@@ -158,6 +170,7 @@ export {
     contentfulCVQuery,
     contentfulEducationQuery,
     contentfulPublicationsQuery,
+    contentfulResearchInterestsQuery,
     contentfulSpecialtiesQuery,
     contentfulTeachingInterestsQuery,
 };

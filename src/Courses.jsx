@@ -1,19 +1,31 @@
+import * as React from 'react';
+
 import { useQuery } from '@apollo/client';
-import { Container, Grid, Typography } from "@mui/material";
-import * as React from "react"
-import CourseCard from "./CourseCard";
-import CustomizedSelect from "./CustomizedSelect"
+import {
+  Container,
+  Grid,
+  Typography,
+} from '@mui/material';
+
+import CourseCard from './CourseCard';
+import CustomizedSelect from './CustomizedSelect';
+import SelectStatusBar from './SelectStatusBar';
 import { contentfulCoursesQuery } from './utils/contentfulQueries';
+
+const institutionOrder = {
+  "University of North Carolina Wilmington": 1,
+  "North Carolina State University": 2,
+}
 
 const levelOrder = {
   "Undergraduate": 1,
-  "Graduate": 5,
+  "Graduate": 2,
 }
 
 const semesterOrder = {
   "Spring": 1,
-  "Summer": 3,
-  "Fall": 5,
+  "Summer": 2,
+  "Fall": 3,
 }
 
 const Courses = () => {
@@ -56,11 +68,8 @@ const Courses = () => {
     (!years.length || course.years.some(year => years.includes(year))));
 
   const allLevels = [...new Set(filteredCourses.map(course => course.level))].sort((a, b) => levelOrder[a] - levelOrder[b]);
-  const allInstitutions = [...new Set(filteredCourses.map(course => course.institution.name))];
-
-  let allYears = new Set();
-  filteredCourses.forEach(course => course.years.forEach(year => allYears.add(year)));
-  allYears = [...allYears].sort();
+  const allInstitutions = [...new Set(filteredCourses.map(course => course.institution.name))].sort((a, b) => institutionOrder[a] - institutionOrder[b]);
+  const allYears = [...new Set(filteredCourses.flatMap(course => course.years))].sort().reverse();
 
   const getOnChangeCallback = (callback) => {
     const onChangeCallback = (event) => {
@@ -75,14 +84,21 @@ const Courses = () => {
     return onChangeCallback;
   };
 
+  const clearAllFiltersCallback = () => {
+    selectLevels([]);
+    selectInstitutions([]);
+    selectYears([]);
+  }
+
   return (
     <Container sx={{ pt: 5, px: 5 }}>
       <Typography variant="h5" sx={{ mb: 3 }}>Courses</Typography>
-      <div>
+      <Grid container spacing={2}>
         <CustomizedSelect id="level" label="Level" multiple={true} allValues={allLevels} value={levels} onChange={getOnChangeCallback(selectLevels)} />
         <CustomizedSelect id="institution" label="Institution" multiple={true} allValues={allInstitutions} value={institutions} onChange={getOnChangeCallback(selectInstitutions)} />
         <CustomizedSelect id="year" label="Year" multiple={true} allValues={allYears} value={years} onChange={getOnChangeCallback(selectYears)} />
-      </div>
+      </Grid>
+      <SelectStatusBar clearAllCallback={clearAllFiltersCallback} count={filteredCourses.length} />
       <Grid container spacing={2}>
         {filteredCourses.map((course, index) => <CourseCard key={index} course={course} />)}
       </Grid>
