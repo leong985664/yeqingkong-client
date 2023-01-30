@@ -1,8 +1,13 @@
-import { BrowserRouter, Routes, Route, } from "react-router-dom";
-import HomePage from "./HomePage";
-import NavigationBar from "./NavigationBar";
-import ResearchPage from "./ResearchPage";
-import TeachingPage from "./TeachingPage";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+} from 'react-router-dom';
+
+import HomePage from './HomePage';
+import NavigationBar from './NavigationBar';
+import ResearchPage from './ResearchPage';
+import TeachingPage from './TeachingPage';
 
 function App() {
   return (

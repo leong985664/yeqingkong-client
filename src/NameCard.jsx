@@ -1,7 +1,14 @@
+import * as React from 'react';
+
+import { Helmet } from 'react-helmet';
+
 import { useQuery } from '@apollo/client';
-import * as React from "react"
-import { Helmet } from "react-helmet";
-import { Avatar, Container, Typography } from "@mui/material";
+import {
+  Avatar,
+  Container,
+  Typography,
+} from '@mui/material';
+
 import { contentfulBasicInfoQuery } from './utils/contentfulQueries';
 
 const NameCard = () => {
@@ -16,7 +23,7 @@ const NameCard = () => {
         <title>{name}</title>
         <meta name="description" content={jobTitle} />
       </Helmet>
-      <Container sx={{ pt: 5, px: 5 }}>
+      <Container sx={{ p: 5, pb: 3 }}>
         <div>
           <Avatar
             alt="Yeqing Kong"

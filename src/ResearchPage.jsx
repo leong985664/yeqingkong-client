@@ -1,7 +1,9 @@
-import { Container } from "@mui/material";
-import * as React from "react"
-import Publications from "./Publications";
-import ResearchInterests from "./ResearchInterests";
+import * as React from 'react';
+
+import { Container } from '@mui/material';
+
+import Publications from './Publications';
+import ResearchInterests from './ResearchInterests';
 
 const ResearchPage = () => {
   return (

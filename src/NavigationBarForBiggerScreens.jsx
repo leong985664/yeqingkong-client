@@ -1,11 +1,15 @@
-import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
-import { Typography } from "@mui/material";
-import { Container } from "@mui/system";
+import * as React from 'react';
+
+import { Link } from 'react-router-dom';
+
+import {
+  Container,
+  styled,
+  Tab,
+  Tabs,
+  Toolbar,
+  Typography,
+} from '@mui/material';
 
 const StyledTabs = styled((props) => (
   <Tabs
@@ -52,36 +56,35 @@ const NavigationBarForBiggerScreens = (props) => {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ display: { xs: 'none', md: 'flex' } }}>
-      <Typography
-        variant="h5"
-        noWrap
-        component={Link}
-        to="/"
-        onClick={() => setValue(0)}
-        sx={{
-          m: "auto 50px",
-          display: 'flex',
-          color: 'white',
-          textDecoration: 'none',
-        }}
-      >
-        Yeqing Kong
-      </Typography>
-      <div>
-        <Box sx={{ p: 1 }} />
+    <Container maxWidth="lg" sx={{ display: { xs: 'none', sm: 'flex' } }}>
+      <div style={{ margin: "auto 0" }}>
+        <Typography
+          variant="h5"
+          noWrap
+          component={Link}
+          to="/"
+          onClick={() => setValue(0)}
+          sx={{
+            color: 'white',
+            textDecoration: 'none',
+          }}
+        >
+          Yeqing Kong
+        </Typography>
+      </div>
+      <Toolbar>
         <StyledTabs
           value={value}
           onChange={handleChange}
           aria-label="styled tabs example"
+          sx={{ py: 1, px: 3 }}
         >
           {pages.map((page) => (
             <StyledTab key={page} component={Link} to={`/${(page === "home") ? "" : page}`} label={page} />
           ))}
           {!(loading || error) && <StyledTab href={data.biographyCollection.items[0].cv.url} target="_blank" label="CV" />}
         </StyledTabs>
-        <Box sx={{ p: 1 }} />
-      </div>
+      </Toolbar>
     </Container>
   )
 }

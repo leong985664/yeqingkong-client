@@ -1,6 +1,12 @@
+import * as React from 'react';
+
 import { useQuery } from '@apollo/client';
-import * as React from "react"
-import { Chip, Container, Typography } from "@mui/material";
+import {
+  Chip,
+  Container,
+} from '@mui/material';
+
+import SectionHeader from './SectionHeader';
 import { contentfulSpecialtiesQuery } from './utils/contentfulQueries';
 
 const Specialties = () => {
@@ -11,7 +17,7 @@ const Specialties = () => {
 
   return (
     <Container sx={{ pt: 5, px: 5 }}>
-      <Typography gutterBottom variant="h5">Specialties</Typography>
+      <SectionHeader title="Specialties" />
       {specialties.map((specialty, index) => {
         return <Chip key={index} color="primary" variant="outlined" size="large" label={specialty} sx={{ margin: 0.5 }}/>
       })}

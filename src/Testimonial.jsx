@@ -11,6 +11,7 @@ import {
   Typography,
 } from '@mui/material';
 
+import SectionHeader from './SectionHeader';
 import { contentfulTestimonialQuery } from './utils/contentfulQueries';
 
 const Testimonial = () => {
@@ -21,7 +22,7 @@ const Testimonial = () => {
 
   return (
     <Container sx={{ pt: 5, px: 5 }}>
-      <Typography gutterBottom variant="h5">What My Students Have To Say</Typography>
+      <SectionHeader title="What My Students Have To Say" divider />
       <Carousel
         autoplay={5000}
         loop

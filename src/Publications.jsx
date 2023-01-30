@@ -4,11 +4,11 @@ import { useQuery } from '@apollo/client';
 import {
   Container,
   Grid,
-  Typography,
 } from '@mui/material';
 
 import CustomizedSelect from './CustomizedSelect';
 import PublicationCard from './PublicationCard';
+import SectionHeader from './SectionHeader';
 import SelectStatusBar from './SelectStatusBar';
 import { contentfulPublicationsQuery } from './utils/contentfulQueries';
 import { getYear } from './utils/helpers';
@@ -68,7 +68,7 @@ const Publications = () => {
 
   return (
     <Container sx={{ pt: 5, px: 5 }}>
-      <Typography variant="h5" sx={{ mb: 3 }}>Publications</Typography>
+      <SectionHeader title="Publications" />
       <Grid container spacing={2}>
         <CustomizedSelect id="status" label="Status" multiple={true} allValues={allStatus} value={status} onChange={getOnChangeCallback(selectStatus)} />
         <CustomizedSelect id="type" label="Type" multiple={true} allValues={allTypes} value={types} onChange={getOnChangeCallback(selectTypes)} />

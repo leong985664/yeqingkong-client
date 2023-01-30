@@ -1,8 +1,14 @@
+import * as React from 'react';
+
 import { useQuery } from '@apollo/client';
-import { Container, Grid, Typography } from "@mui/material";
-import * as React from "react"
-import ResearchInterestCard from "./ResearchInterestCard";
-import { contentfulResearchInterestsQuery } from "./utils/contentfulQueries";
+import {
+  Container,
+  Grid,
+} from '@mui/material';
+
+import ResearchInterestCard from './ResearchInterestCard';
+import SectionHeader from './SectionHeader';
+import { contentfulResearchInterestsQuery } from './utils/contentfulQueries';
 
 const ResearchInterests = () => {
   const { loading, error, data } = useQuery(contentfulResearchInterestsQuery);
@@ -12,7 +18,7 @@ const ResearchInterests = () => {
 
   return (
     <Container sx={{ pt: 5, px: 5 }}>
-      <Typography variant="h5" sx={{ mb: 3 }}>Research Interests</Typography>
+      <SectionHeader title="Research Interests" divider />
       <Grid container spacing={2}>
         {interests.map((interest, index) => <ResearchInterestCard key={index} interest={interest} />)}
       </Grid>

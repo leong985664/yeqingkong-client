@@ -4,11 +4,11 @@ import { useQuery } from '@apollo/client';
 import {
   Container,
   Grid,
-  Typography,
 } from '@mui/material';
 
 import CourseCard from './CourseCard';
 import CustomizedSelect from './CustomizedSelect';
+import SectionHeader from './SectionHeader';
 import SelectStatusBar from './SelectStatusBar';
 import { contentfulCoursesQuery } from './utils/contentfulQueries';
 
@@ -92,7 +92,7 @@ const Courses = () => {
 
   return (
     <Container sx={{ pt: 5, px: 5 }}>
-      <Typography variant="h5" sx={{ mb: 3 }}>Courses</Typography>
+      <SectionHeader title="Courses" />
       <Grid container spacing={2}>
         <CustomizedSelect id="level" label="Level" multiple={true} allValues={allLevels} value={levels} onChange={getOnChangeCallback(selectLevels)} />
         <CustomizedSelect id="institution" label="Institution" multiple={true} allValues={allInstitutions} value={institutions} onChange={getOnChangeCallback(selectInstitutions)} />

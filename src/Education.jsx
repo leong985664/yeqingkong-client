@@ -1,8 +1,14 @@
+import * as React from 'react';
+
 import { useQuery } from '@apollo/client';
-import * as React from "react"
-import { Avatar, Container, Divider, Typography } from "@mui/material";
+import {
+  Container,
+  Divider,
+} from '@mui/material';
+
+import EducationItem from './EducationItem';
+import SectionHeader from './SectionHeader';
 import { contentfulEducationQuery } from './utils/contentfulQueries';
-import { getYearSpanString } from "./utils/helpers";
 
 const Education = () => {
   const { loading, error, data } = useQuery(contentfulEducationQuery);
@@ -10,37 +16,15 @@ const Education = () => {
   if (error) return <></>;
   const education = data.educationCollection.items;
 
-  const renderEducationItem = (item, index) => {
-    return (
-      <div style={{ display: "flex" }}>
-        <div style={{ padding: 20 }}>
-          <Avatar
-            alt={item.institution.name}
-            src={item.institution.logo.url}
-            sx={{ width: 64, height: 64 }}
-          />
-        </div>
-        <div style={{ padding: 5, margin: "auto 0" }}>
-          <Typography variant="subtitle1">{item.degree}</Typography>
-          <Typography variant="subtitle2" color="text.secondary">{item.institution.name}</Typography>
-        </div>
-        <div style={{ padding: 5, margin: "auto 0 auto auto", display: "grid" }}>
-          <Typography variant="subtitle1" sx={{ ml: "auto" }}>{item.institution.locationString}</Typography>
-          <Typography variant="subtitle2" color="text.secondary" sx={{ ml: "auto" }}>{getYearSpanString(item.startTime, item.endTime, true)}</Typography>
-        </div>
-      </div>
-    )
-  }
-
   return (
     <Container sx={{ pt: 5, px: 5 }}>
-      <Typography gutterBottom variant="h5">Education</Typography>
+      <SectionHeader title="Education" divider />
       {education.map((item, index) => {
         return (
-          <>
-            {!!index && <Divider key={index}/>}
-            {renderEducationItem(item, index)}
-          </>
+          <div key={index}>
+            {!!index && <Divider />}
+            <EducationItem item={item} />
+          </div>
         )
       })}
     </Container>
