@@ -13,7 +13,7 @@ const Footer = () => {
     <>
       <Divider sx={{ mt: 10 }} />
       <Container maxWidth="lg" sx={{ display: 'flex', justifyContent: 'space-between', py: 2.5 }}>
-        <Typography variant="body1" component='div' sx={{ my: "auto" }}>Copyright © Yeqing Kong 2023. All rights reserved.</Typography>
+        <Typography variant="body" component='div' sx={{ my: "auto" }}>Copyright © Yeqing Kong 2023. All rights reserved.</Typography>
         <div style={{ m: "auto" }}>
           <Contacts color="grey" />
         </div>

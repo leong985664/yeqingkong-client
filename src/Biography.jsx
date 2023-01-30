@@ -4,7 +4,10 @@ import { useQuery } from '@apollo/client';
 import {
   documentToReactComponents,
 } from '@contentful/rich-text-react-renderer';
-import { INLINES } from '@contentful/rich-text-types';
+import {
+  BLOCKS,
+  INLINES,
+} from '@contentful/rich-text-types';
 import ArticleIcon from '@mui/icons-material/Article';
 import {
   Button,
@@ -32,7 +35,8 @@ const Biography = () => {
         >
           {children}
         </Link>
-      )
+      ),
+      [BLOCKS.PARAGRAPH]: (node, children) => <Typography vairant="body" sx={{ fontSize: 17 }}>{children}</Typography>
     },
   };
 
