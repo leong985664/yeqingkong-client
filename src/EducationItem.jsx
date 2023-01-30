@@ -12,13 +12,11 @@ const EducationItem = (props) => {
 
   return (
     <div style={{ display: "flex" }}>
-      <div style={{ padding: 20 }}>
-        <Avatar
-          alt={item.institution.name}
-          src={item.institution.logo.url}
-          sx={{ width: 64, height: 64 }}
-        />
-      </div>
+      <Avatar
+        alt={item.institution.name}
+        src={item.institution.logo.url}
+        sx={{ px: 2, py: { xs: 2, sm: 3 }, width: { xs: 32, sm: 64}, height: {xs: 32, sm: 64} }}
+      />
       <div style={{ padding: 5, margin: "auto 0" }}>
         <Typography variant="subtitle1">{item.degree}</Typography>
         <Typography variant="subtitle2" color="text.secondary">{item.institution.name}</Typography>

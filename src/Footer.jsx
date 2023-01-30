@@ -3,6 +3,7 @@ import * as React from 'react';
 import {
   Container,
   Divider,
+  Grid,
   Typography,
 } from '@mui/material';
 
@@ -12,11 +13,15 @@ const Footer = () => {
   return (
     <>
       <Divider sx={{ mt: 10 }} />
-      <Container maxWidth="lg" sx={{ display: 'flex', justifyContent: 'space-between', py: 2.5 }}>
-        <Typography variant="body" component='div' sx={{ my: "auto" }}>Copyright © Yeqing Kong 2023. All rights reserved.</Typography>
-        <div style={{ m: "auto" }}>
-          <Contacts color="grey" />
-        </div>
+      <Container maxWidth="lg" sx={{ py: 2.5 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6} sx={{ display: "flex" }}>
+            <Typography variant="body3" component="div" sx={{ m: "auto" }}>Copyright © Yeqing Kong 2023. All rights reserved.</Typography>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Contacts color="grey" />
+          </Grid>
+        </Grid>
       </Container>
     </>
   );
